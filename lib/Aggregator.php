@@ -81,6 +81,14 @@ class Aggregator
     protected $validLength;
 
     /**
+     * the name of the EntitiesDescriptor
+     * will set the name attribute
+     *
+     * @var [type]
+     */
+    protected $name;
+
+    /**
      * Duration we should cache generated metadata.
      *
      * @var int|null
@@ -217,6 +225,8 @@ class Aggregator
         $this->setFilters($config->getArrayize('filter', null));
 
         $this->validLength = $config->getInteger('valid.length', 7 * 24 * 60 * 60);
+
+        $this->name = $config->getString('name', null );
 
         $globalConfig = Configuration::getInstance();
         $certDir = $globalConfig->getPathValue('certdir', 'cert/');
@@ -547,6 +557,10 @@ class Aggregator
 
         $ret->setChildren(array_unique($ret->getChildren(), SORT_REGULAR));
         $ret->validUntil = $now + $this->validLength;
+
+        if( $this->name !== null ){
+            $ret->setName( $this->name );
+        }
 
         return $ret;
     }
