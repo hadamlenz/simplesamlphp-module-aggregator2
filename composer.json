@@ -13,12 +13,16 @@
         {
             "name": "Jaime Pérez",
             "email": "jaime.perez@uninett.no"
+        },
+        {
+            "name": "Adam Lenz",
+            "email": "hadamlenz@unc.edu"
         }
     ],
     "require": {
         "php": ">=7.2",
         "simplesamlphp/composer-module-installer": "~1.1",
-        "simplesamlphp/simplesamlphp": "dev-master"
+        "simplesamlphp/simplesamlphp": "^1.8.0"
     },
     "require-dev": {
         "simplesamlphp/simplesamlphp-test-framework": "~0.1.0"
