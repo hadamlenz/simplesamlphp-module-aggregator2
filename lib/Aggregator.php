@@ -187,6 +187,13 @@ class Aggregator
      */
     protected $pubInfo;
 
+     /**
+     * the name of the EntitiesDescriptor
+     * will set the name attribute
+     *
+     * @var [type]
+     */
+    protected $name;
 
     /**
      * Initialize this aggregator.
