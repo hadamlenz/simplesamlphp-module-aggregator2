@@ -1,12 +1,7 @@
 <?php
 
-use SimpleSAML\Configuration;
-use SimpleSAML\Error;
-use SimpleSAML\Module;
-use SimpleSAML\XHTML\Template;
-
-$ssp_cf = Configuration::getInstance();
-$mod_cf = Configuration::getConfig('module_aggregator2.php');
+$ssp_cf = \SimpleSAML\Configuration::getInstance();
+$mod_cf = \SimpleSAML\Configuration::getConfig('module_aggregator2.php');
 
 // get list of sources
 $names = array_keys($mod_cf->toArray());
@@ -16,21 +11,21 @@ foreach ($names as $name) {
     $encId = urlencode($name);
 
     $sources[$name] = [
-        'name' => Module::getModuleURL(
+        'name' => SimpleSAML\Module::getModuleURL(
             'aggregator2/get.php',
             ['id' => $encId]
         ),
-        'text' => Module::getModuleURL(
+        'text' => SimpleSAML\Module::getModuleURL(
             'aggregator2/get.php',
             ['id' => $encId, 'mimetype' => 'text/plain']
         ),
-        'xml' => Module::getModuleURL(
+        'xml' => SimpleSAML\Module::getModuleURL(
             'aggregator2/get.php',
             ['id' => $encId, 'mimetype' => 'application/xml']
         ),
     ];
 }
 
-$t = new Template($ssp_cf, 'aggregator2:list.twig');
+$t = new \SimpleSAML\XHTML\Template($ssp_cf, 'aggregator2:list.php');
 $t->data['sources'] = $sources;
-$t->send();
+$t->show();

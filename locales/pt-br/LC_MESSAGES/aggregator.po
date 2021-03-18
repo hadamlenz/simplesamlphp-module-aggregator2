@@ -1,3 +1,6 @@
+msgid "{aggregator2:aggregator:frontpage_link}"
+msgstr "Metadado do agregador"
+
 msgid "Aggregators"
 msgstr "Agregadores"
 

@@ -1,7 +1,3 @@
-![Build Status](https://github.com/simplesamlphp/simplesamlphp-module-aggregator2/workflows/CI/badge.svg?branch=master)
-[![Coverage Status](https://codecov.io/gh/simplesamlphp/simplesamlphp-module-aggregator2/branch/master/graph/badge.svg)](https://codecov.io/gh/simplesamlphp/simplesamlphp-module-aggregator2)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/simplesamlphp/simplesamlphp-module-aggregator2/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/simplesamlphp/simplesamlphp-module-aggregator2/?branch=master)
-
 Aggregator 2
 ============
 
@@ -87,7 +83,8 @@ certificate can be either absolute or relative to the `cert` directory.
 
     * `http://www.w3.org/2001/04/xmldsig-more#rsa-sha512`
 
-    *Note*: this option defaults to `http://www.w3.org/2000/09/xmldsig#rsa-sha256.`. For backwards compatibility it is possible to set it to `http://www.w3.org/2000/09/xmldsig#rsa-sha1`, however, it is recommended to use another algorithm as SHA1 is considered broken.
+    *Note*: this option defaults to `http://www.w3.org/2000/09/xmldsig#rsa-sha1` for backwards compatibility. However, it is
+    recommended to use another algorithm as SHA1 is considered broken.
 
 * `RegistrationInfo`:   Allows to specify information about the registrar of the generated metadata. Please refer to the
 [MDRPI extension](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-rpi) document for further information.
@@ -105,11 +102,19 @@ sets are available:
 
     * `saml2`: all the entities that support the SAML 2.0 protocol.
 
+    * `shib13`: all the entities that support the SAML 1.1 protocol.
+
     * `saml20-idp`: all the identity providers that support the SAML 2.0 protocol.
 
     * `saml20-sp`: all the service providers that support the SAML 2.0 protocol.
 
     * `saml20-aa`: all the attribute authorities that support the SAML 2.0 protocol.
+
+    * `shib13-idp`: all the identity providers that support the SAML 1.1 protocol.
+
+    * `shib13-sp`: all the service providers that support the SAML 1.1 protocol.
+
+    * `shib13-aa`: all the attribute authorities that support the SAML 1.1 protocol.
 
     *Note*: this option will not filter the entities in the cached metadata sources. It will only act as a default
 configuration for the generation of the metadata aggregate, and therefore can be overriden per request.
