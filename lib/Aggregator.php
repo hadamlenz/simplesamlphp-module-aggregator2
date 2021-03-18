@@ -222,6 +222,8 @@ class Aggregator
 
         $this->validLength = $config->getInteger('valid.length', 7*24*60*60);
 
+        $this->name = $config->getString('name', null );
+
         $globalConfig = Configuration::getInstance();
         $certDir = $globalConfig->getPathValue('certdir', 'cert/');
 
@@ -586,6 +588,10 @@ class Aggregator
 
         $ret->setChildren(array_unique($ret->getChildren(), SORT_REGULAR));
         $ret->validUntil = $now + $this->validLength;
+
+        if( $this->name !== null ){
+            $ret->setName( $this->name );
+        }
 
         return $ret;
     }
